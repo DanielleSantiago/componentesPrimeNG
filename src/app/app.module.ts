@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
+import { ToolbarModule } from 'primeng/toolbar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ClientesComponent } from './clientes/clientes/clientes.component';
+import { ClientesComponent } from './clientes/clientes.component';
+import {SplitButtonModule} from 'primeng/splitbutton';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { ClientesComponent } from './clientes/clientes/clientes.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    TableModule
+    TableModule,
+    ToolbarModule,
+    ButtonModule,
+    SplitButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
