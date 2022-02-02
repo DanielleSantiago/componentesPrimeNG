@@ -1,2 +1,30 @@
-
-<p>Foda-se</p>
+<div class="row">
+  <div class="col-12">
+    <p-table [columns]="cols" #dt [value]="clientes" styleClass="p-datatable-customers" [rowHover]="true"
+    [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[5,15,30]"
+    [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [filterDelay]="0"[globalFilterFields]="['nome','idade','genero']">
+      <ng-template pTemplate="caption">
+        <div class="table-header">
+            Lista de Clientes
+            <span class="p-input-icon-right">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" (input)="dt.filterGlobal(($any($event.target).value), 'contains')"/>
+            </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header" let-columns>
+          <tr>
+              <th *ngFor="let col of columns" [pSortableColumn]="col.field">{{ col.header }}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+              </th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+          <tr>
+              <td *ngFor="let col of columns">{{ rowData[col.field] }}</td>
+          </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

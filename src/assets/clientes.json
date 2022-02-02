@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "nome": "Danielle Santiago",
+    "idade": 32,
+    "genero": "feminino",
+    "ativo": true
+  },
+  {
+    "id": 2,
+    "nome": "Fernando Pessoa",
+    "idade": 45,
+    "genero": "masculino",
+    "ativo": true
+  },
+  {
+    "id": 3,
+    "nome": "Maria Joaquina de Oliveira",
+    "idade": 24,
+    "genero": "feminino",
+    "ativo": false
+  },
+  {
+    "id": 4,
+    "nome": "Alberto Fernandes",
+    "idade": 56,
+    "genero": "masculino",
+    "ativo": false
+  },
+  {
+    "id": 5,
+    "nome": "Liniker Vasconcelos",
+    "idade": 27,
+    "genero": "não-binário",
+    "ativo": true
+  },
+  {
+    "id": 6,
+    "nome": "Patrícia da Silva",
+    "idade": 19,
+    "genero": "feminino",
+    "ativo": false
+  }
+]
