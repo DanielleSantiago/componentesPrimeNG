@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api'
 import { Cliente } from './model/cliente';
 import { ClientesService } from './service/clientes.service';
@@ -13,6 +13,9 @@ export class ClientesComponent implements OnInit {
   clientes: Cliente[] = [];
 
   cols: any[] = [];
+
+  selectedClients: Cliente[] = [];
+  _selectedClients: any[] = [];
 
   constructor(private clientesService: ClientesService) {}
 
@@ -29,6 +32,16 @@ export class ClientesComponent implements OnInit {
       { field: 'genero', header: 'Gênero' }
     ];
 
+    this._selectedClients = this.cols;
+  }
+
+  @Input() get selectedColumns(): any[] {
+    return this._selectedClients;
+  }
+
+  set selectedColumns(val: any[]) {
+      //restore original order
+      this._selectedClients = this.cols.filter(col => val.includes(col));
   }
 
 }
