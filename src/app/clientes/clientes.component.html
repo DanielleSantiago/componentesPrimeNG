@@ -7,7 +7,7 @@
       <ng-template pTemplate="caption">
         <div class="p-grid p-align-center">
           <span>Lista de Clientes</span>
-            <button p-button class="btn">
+            <button type="button" (click)="showBasicDialog()" p-button class="btn">
               <i class="pi pi-bars"></i>
             </button>
           <span class="p-input-icon-right ml-auto float-end">
@@ -43,3 +43,18 @@
     </p-table>
   </div>
 </div>
+
+<!-- Dialog Selecionar colunas -->
+<p-dialog header="Selecione as colunas que deseja exibir" [(visible)]="displayBasic"
+[style]="{width: '50vw'}" [baseZIndex]="10000">
+    <div class="p-grid" style="width:250px;margin-bottom:10px">
+      <div class="p-col-12"><p-checkbox name="group1" value="New York" label="New York" [(ngModel)]="selectedCities" inputId="ny"></p-checkbox></div>
+      <div class="p-col-12"><p-checkbox name="group1" value="San Francisco" label="San Francisco" [(ngModel)]="selectedCities" inputId="sf"></p-checkbox></div>
+      <div class="p-col-12"><p-checkbox name="group1" value="Los Angeles" label="Los Angeles" [(ngModel)]="selectedCities" inputId="la"></p-checkbox></div>
+    </div>
+    <span *ngFor="let city of selectedCities" style="margin-right:10px">{{city}}</span>
+    <p-footer>
+        <button type="button" pButton icon="pi pi-check" (click)="displayBasic=false" label="Yes"></button>
+        <button type="button" pButton icon="pi pi-times" (click)="displayBasic=false" label="No" class="ui-button-secondary"></button>
+    </p-footer>
+</p-dialog>

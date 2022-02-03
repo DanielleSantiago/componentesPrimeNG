@@ -12,6 +12,10 @@ export class ClientesComponent implements OnInit {
 
   clientes: Cliente[] = [];
 
+  displayBasic: boolean = false;
+
+  selectedCities: string[] = [];
+
   cols: any[] = [];
 
   selectedClients: Cliente[] = [];
@@ -42,6 +46,10 @@ export class ClientesComponent implements OnInit {
   set selectedColumns(val: any[]) {
       //restore original order
       this._selectedClients = this.cols.filter(col => val.includes(col));
+  }
+
+  showBasicDialog() {
+    this.displayBasic = true;
   }
 
 }

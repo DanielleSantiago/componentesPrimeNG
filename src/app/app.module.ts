@@ -5,6 +5,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
+import { CheckboxModule } from 'primeng/checkbox';
+import { DialogModule } from 'primeng/dialog';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { MenubarModule } from 'primeng/menubar';
 import { MultiSelectModule } from 'primeng/multiselect';
@@ -30,7 +32,9 @@ import { ClientesComponent } from './clientes/clientes.component';
     MultiSelectModule,
     FormsModule,
     ButtonModule,
-    InputSwitchModule
+    InputSwitchModule,
+    DialogModule,
+    CheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
