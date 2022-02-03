@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
+import { InputSwitchModule } from 'primeng/inputswitch';
 import { MenubarModule } from 'primeng/menubar';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { TableModule } from 'primeng/table';
@@ -26,7 +28,9 @@ import { ClientesComponent } from './clientes/clientes.component';
     TableModule,
     CardModule,
     MultiSelectModule,
-    FormsModule
+    FormsModule,
+    ButtonModule,
+    InputSwitchModule
   ],
   providers: [],
   bootstrap: [AppComponent]
