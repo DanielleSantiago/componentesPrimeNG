@@ -1,6 +1,6 @@
-<div class="container-fluid">
+<div class="p-container-fluid">
   <div class="col-12">
-    <p-table #dt [value]="clientes" styleClass="p-datatable-gridlines mb-5" [(selection)]="selectedClients" dataKey="nome"
+    <p-table #dt [value]="clientes" dataKey="nome" editMode="row" styleClass="p-datatable-gridlines mb-5" [(selection)]="selectedClients" dataKey="nome"
     [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,20,30]"
     [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
     [filterDelay]="0"[globalFilterFields]="['nome','idade','genero']">
@@ -21,24 +21,50 @@
             <th style="width: 3rem">
               <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
             </th>
-            <th style="width: 30%;">Nome</th>
-            <th style="width: 25%; text-align: center;">Idade</th>
-            <th style="width: 25%; text-align: center;">Gênero</th>
-            <th style="width: 25%; text-align: center;">Ativo</th>
+            <th style="width: 25%;">Nome</th>
+            <th style="width: 20%; text-align: center;">Idade</th>
+            <th style="width: 20%; text-align: center;">Gênero</th>
+            <th style="width: 20%; text-align: center;">Ativo</th>
+            <th style="width: 15%; text-align: center;">Ações</th>
           </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-cliente>
-          <tr>
+      <ng-template pTemplate="body" let-cliente let-editing="editing" let-ri="rowIndex">
+        <tr [pEditableRow]="cliente">
             <td>
               <p-tableCheckbox [value]="cliente"></p-tableCheckbox>
             </td>
-            <td>{{ cliente.nome }}</td>
-            <td style="text-align: center;">{{ cliente.idade }}</td>
-            <td style="text-align: center;">{{ cliente.genero }}</td>
+            <td>
+                {{cliente.nome}}
+            </td>
+            <td>
+                <p-cellEditor>
+                    <ng-template pTemplate="input">
+                        <input pInputText type="text" [(ngModel)]="cliente.idade" required>
+                    </ng-template>
+                    <ng-template pTemplate="output">
+                        {{cliente.idade}}
+                    </ng-template>
+                </p-cellEditor>
+            </td>
+            <td>
+              <p-cellEditor>
+                  <ng-template pTemplate="input">
+                      <input pInputText type="text" [(ngModel)]="cliente.genero" required>
+                  </ng-template>
+                  <ng-template pTemplate="output">
+                      {{cliente.genero}}
+                  </ng-template>
+              </p-cellEditor>
+            </td>
             <td style="text-align: center;">
               <p-inputSwitch [(ngModel)]="cliente.ativo"></p-inputSwitch>
             </td>
-          </tr>
+            <td style="text-align:center">
+                <button *ngIf="!editing" pButton type="button" pInitEditableRow icon="pi pi-pencil" class="ui-button-info" (click)="onRowEditInit(cliente)"></button>
+                <button *ngIf="editing" pButton type="button" pSaveEditableRow icon="pi pi-check" class="ui-button-success" style="margin-right: .5em" (click)="onRowEditSave(cliente)"></button>
+                <button *ngIf="editing" pButton type="button" pCancelEditableRow icon="pi pi-times" class="ui-button-danger" (click)="onRowEditCancel(cliente, ri)"></button>
+            </td>
+        </tr>
       </ng-template>
     </p-table>
   </div>

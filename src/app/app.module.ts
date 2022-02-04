@@ -34,7 +34,7 @@ import { ClientesComponent } from './clientes/clientes.component';
     ButtonModule,
     InputSwitchModule,
     DialogModule,
-    CheckboxModule
+    CheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
